@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA083E2E194173250097342F /* gameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = EA083E2B194173240097342F /* gameOver.png */; };
+		EA083E2F194173250097342F /* rightAnswer.png in Resources */ = {isa = PBXBuildFile; fileRef = EA083E2C194173240097342F /* rightAnswer.png */; };
+		EA083E30194173250097342F /* wrongAnswer.png in Resources */ = {isa = PBXBuildFile; fileRef = EA083E2D194173240097342F /* wrongAnswer.png */; };
 		EA3062F419404106006DCABF /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3062F319404106006DCABF /* Categories.m */; };
 		EA3062F719406694006DCABF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3062F619406694006DCABF /* Game.m */; };
 		EAD83D2D19403BCD0006F6D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD83D2C19403BCD0006F6D8 /* Foundation.framework */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA083E2B194173240097342F /* gameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameOver.png; sourceTree = "<group>"; };
+		EA083E2C194173240097342F /* rightAnswer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightAnswer.png; sourceTree = "<group>"; };
+		EA083E2D194173240097342F /* wrongAnswer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrongAnswer.png; sourceTree = "<group>"; };
 		EA3062F219404106006DCABF /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		EA3062F319404106006DCABF /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		EA3062F519406693006DCABF /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				EAD83D6519403C8A0006F6D8 /* backGround.jpg */,
+				EA083E2B194173240097342F /* gameOver.png */,
+				EA083E2C194173240097342F /* rightAnswer.png */,
+				EA083E2D194173240097342F /* wrongAnswer.png */,
 				EAD83D3419403BCE0006F6D8 /* QuizSample-Info.plist */,
 				EAD83D3519403BCE0006F6D8 /* InfoPlist.strings */,
 				EAD83D3819403BCE0006F6D8 /* main.m */,
@@ -247,11 +256,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA083E2F194173250097342F /* rightAnswer.png in Resources */,
 				EAD83D6619403C8A0006F6D8 /* backGround.jpg in Resources */,
 				EAD83D6419403C5A0006F6D8 /* doc in Resources */,
 				EAD83D4519403BCE0006F6D8 /* Images.xcassets in Resources */,
+				EA083E30194173250097342F /* wrongAnswer.png in Resources */,
 				EAD83D3719403BCE0006F6D8 /* InfoPlist.strings in Resources */,
 				EAD83D6219403BF30006F6D8 /* README.md in Resources */,
+				EA083E2E194173250097342F /* gameOver.png in Resources */,
 				EAD83D4019403BCE0006F6D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

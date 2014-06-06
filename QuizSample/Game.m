@@ -15,6 +15,10 @@ BOOL answer2Correct;
 BOOL answer3Correct;
 BOOL answer4Correct;
 
+int scoreNumber;
+int livesNumber;
+BOOL gameInProgress;
+
 @interface Game ()
 @property (weak, nonatomic) IBOutlet UILabel *categorySelected;
 @property (weak, nonatomic) IBOutlet UILabel *questText;
@@ -24,16 +28,76 @@ BOOL answer4Correct;
 @property (weak, nonatomic) IBOutlet UIButton *answer3;
 @property (weak, nonatomic) IBOutlet UIButton *answer4;
 
+@property (weak, nonatomic) IBOutlet UIButton *nextCategory;
+@property (weak, nonatomic) IBOutlet UIButton *exit;
+@property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UILabel *lives;
+@property (weak, nonatomic) IBOutlet UIImageView *result;
+
 @end
 
 @implementation Game
+
+-(void)rightAnswer{
+    scoreNumber += 1;
+    _score.text = [NSString stringWithFormat:@"%i",scoreNumber];
+    _nextCategory.hidden = NO;
+    _answer1.hidden = YES;
+    _answer2.hidden = YES;
+    _answer3.hidden = YES;
+    _answer4.hidden = YES;
+    _questText.hidden = YES;
+    _categorySelected.hidden = YES;
+    _result.hidden = NO;
+    _result.image = [UIImage imageNamed:@"rightAnswer.png"];
+}
+-(void)wrongAnswer{
+    livesNumber -= 1;
+    _lives.text = [NSString stringWithFormat:@"%i",livesNumber];
+    _nextCategory.hidden = NO;
+    _answer1.hidden = YES;
+    _answer2.hidden = YES;
+    _answer3.hidden = YES;
+    _answer4.hidden = YES;
+    _questText.hidden = YES;
+    _categorySelected.hidden = YES;
+    _result.hidden = NO;
+    _result.image = [UIImage imageNamed:@"wrongAnswer.png"];
+    if(livesNumber == NO){
+        _result.image = [UIImage imageNamed:@"gameOver.png"];
+        _nextCategory.hidden = YES;
+        _exit.hidden = NO;
+        gameInProgress = NO;
+    }
+}
+
 - (IBAction)answer1:(id)sender {
+    if(answer1Correct == YES){
+        [self rightAnswer];
+    }else{
+        [self wrongAnswer];
+    }
 }
 - (IBAction)answer2:(id)sender {
+    if(answer2Correct == YES){
+        [self rightAnswer];
+    }else{
+        [self wrongAnswer];
+    }
 }
 - (IBAction)answer3:(id)sender {
+    if(answer3Correct == YES){
+        [self rightAnswer];
+    }else{
+        [self wrongAnswer];
+    }
 }
 - (IBAction)answer4:(id)sender {
+    if(answer4Correct == YES){
+        [self rightAnswer];
+    }else{
+        [self wrongAnswer];
+    }
 }
 
 -(void)category1{
@@ -280,6 +344,24 @@ BOOL answer4Correct;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if(gameInProgress == NO){
+        livesNumber = 3;
+        scoreNumber = 0;
+        gameInProgress = YES;
+    }
+    _result.hidden = YES;
+    _exit.hidden = YES;
+    _nextCategory.hidden = YES;
+    
+    _lives.text = [NSString stringWithFormat:@"%i",livesNumber];
+    _score.text = [NSString stringWithFormat:@"%i",scoreNumber];
+    
+    
+    answer1Correct = NO;
+    answer2Correct = NO;
+    answer3Correct = NO;
+    answer4Correct = NO;
     
     categoryLoaded = [[NSUserDefaults standardUserDefaults]integerForKey:@"categorySaved"];
     questionSelected = arc4random() %4;
